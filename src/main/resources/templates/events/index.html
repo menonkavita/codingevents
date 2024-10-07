@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Display Events</title>
-</head>
+<head th:replace="fragments :: scripts-css"></head>
 <body>
     <h1>Displaying Events</h1>
+    <nav th:replace="fragments :: navigation"></nav>
+
     <div>
         <h3>List of Events:</h3>
         <p th:unless="${events} and ${events.size()}">No Events!</p>
@@ -13,7 +12,6 @@
             <th:block th:each="event : ${events}">
                 <li th:text="${event}"></li>
             </th:block>
-            <li><a href="/events"> All Events</a></li>
         </ul>
     </div>
 </body>
