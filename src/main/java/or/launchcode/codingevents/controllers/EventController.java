@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    // Available @ localhost:8080/events
+    // Available @ localhost:8080/events -- not rendering as of now
     public String displayEvents(Model model){
         List<String> eventsList = new ArrayList<>();
         eventsList.add("Dancing");
