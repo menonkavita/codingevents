@@ -1,5 +1,6 @@
-package or.launchcode.codingevents.controllers;
+package org.launchcode.codingevents.controllers;
 
+import org.launchcode.codingevents.models.Events;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,7 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    private static HashMap<String, String> eventsListHash = new HashMap<>();
+    private static List<Events> eventsObj = new ArrayList<>();
 
     // Available @ localhost:8080/events -- not rendering as of now
     @GetMapping
@@ -26,11 +27,11 @@ public class EventController {
 //        eventsList.add("Cooking");
 //        model.addAttribute("events", eventsList);
 
-        eventsListHash.put("Menteaship", "A fun meetup for connecting with mentors");
-        eventsListHash.put("Code With Pride", "A fun meetup sponsored by LaunchCode");
-        eventsListHash.put("Javascripty", "An imaginary meetup for Javascript developers");
+//        eventsObj.add(new Events("Menteaship"));
+//        eventsObj.add(new Events("Code With Pride"));
+//        eventsObj.add(new Events("Javascripty"));
 
-        model.addAttribute("events", eventsListHash);
+        model.addAttribute("events", eventsObj);
         return "events/index";
     }
 
@@ -43,7 +44,7 @@ public class EventController {
     // localhost:8080/events/create
     @PostMapping("/create")
     public String createEvent (@RequestParam String eventName, @RequestParam String eventDesc){
-        eventsListHash.put(eventName, eventDesc);
+        eventsObj.add(new Events(eventName, eventDesc));
         return "redirect:/events";
     }
 }

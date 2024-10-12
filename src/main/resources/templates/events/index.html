@@ -15,8 +15,10 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Address</th>
-                <th>Images</th>
+                <th>Description</th>
+
+<!--                <th>Address</th>-->
+<!--                <th>Images</th>-->
             </tr>
             </thead>
 <!--            <tr th:block th:each="event : ${events}">-->
@@ -25,15 +27,16 @@
 <!--            </tr>-->
 
             <tr th:block th:each="event : ${events}">
-                <td th:text="${event}"></td>
-                </td>
-                <td>
-                    <th:block th:replace="fragments :: address">Address</th:block>
-                </td>
-                <td>
-<!--                    <img th:href="@{/images/Welcome.png}"/>-->
-                    <img th:src="@{/images/Welcome-scaled.png}"/>
-                </td>
+                <td th:text="${event.name}"></td>
+                <td th:text="${event.description}"></td>
+
+<!--                <td>-->
+<!--                    <th:block th:replace="fragments :: address">Address</th:block>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--&lt;!&ndash;                    <img th:href="@{/images/Welcome.png}"/>&ndash;&gt;-->
+<!--                    <img th:src="@{/images/Welcome-scaled.png}"/>-->
+<!--                </td>-->
             </tr>
         </table>
     </div>
