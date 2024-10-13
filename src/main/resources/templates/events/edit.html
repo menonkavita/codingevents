@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments :: scripts-css"></head>
+<body class="container">
+
+    <h1> Edit Event</h1>
+    <nav th:replace="fragments :: navigation"></nav>
+
+    <form method="post" action="/events/edit" th:object="${event}">
+<!--        th:action="@{/events/edit}   Org LC Code-->
+
+<!--        <th:block th:each = "event : ${events}">-->
+<!--            <div class="form-group">-->
+<!--                <label>-->
+<!--                    <span th:text = "${event.name}"></span> &nbsp;&nbsp;&nbsp;-->
+<!--                    <input type="checkbox" name="eventIds" th:value="${event.id}">-->
+<!--                </label>-->
+<!--            </div>-->
+
+                <div class="form-group">
+                    <label> Event Details (Edit form): </label><br><br>
+                    <input type="hidden" th:value="${event.id}" name="eventId"/>
+
+                    <label> Event Name:
+                        <input type="text" name="name" class="form-control" th:value="${event.name}">
+                    </label><br>
+                    <label> Event Description:
+                        <input type="text" name="description" class="form-control" th:value="${event.description}">
+                    </label><br>
+                    <label> Number of Attendees:
+                        <input type="number" name="numberOfAttendees" class="form-control" th:value="${event.numberOfAttendees}">
+                    </label><br>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Edit Event" class="btn btn-success">
+                </div>
+
+
+<!--        </th:block>-->
+
+    </form>
+
+<!--Code as suggested in LC Exercises-->
+<!--    <form method="post" th:action="@{/events/edit}">-->
+<!--        <div class="form-group">-->
+<!--            <label> Event Details (Edit form): </label><br><br>-->
+<!--            <input type="hidden" th:value="${event.id}" name="eventId"/>-->
+
+<!--            <label> Enter Event Name:-->
+<!--                <input type="text" name="name" class="form-control">-->
+<!--            </label><br>-->
+<!--            <label> Enter Event Description:-->
+<!--                <input type="text" name="description" class="form-control">-->
+<!--            </label><br>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <input type="submit" value="Edit Event" class="btn btn-success">-->
+<!--        </div>-->
+
+<!--    </form>-->
+
+</body>
+</html>

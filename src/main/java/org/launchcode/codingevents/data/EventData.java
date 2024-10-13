@@ -26,6 +26,11 @@ public class EventData {
         eventsObj.put(e.getId(), e);
     }
 
+    // edit an event
+    public static void edit(Event e){
+        eventsObj.replace(e.getId(), e);
+    }
+
     // remove an event
     public static void remove(int id){
         eventsObj.remove(id);

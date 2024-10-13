@@ -18,6 +18,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Number Of Attendees</th>
+                <th>Click to Edit</th>
 
 <!--                <th>Address</th>-->
 <!--                <th>Images</th>-->
@@ -29,7 +30,19 @@
                 <td th:text="${event.name}"></td>
                 <td th:text="${event.description}"></td>
                 <td th:text="${event.numberOfAttendees}"></td>
+                <td>
+                    <a th:href="@{/events/edit/{id}(id=${event.id})}"><input type="submit" value="Edit Event" class="btn btn-success"></a>
+<!--                    <a th:href="@{/events/edit/${event.id}}"><input type="submit" value="Edit Event" class="btn btn-success"></a>-->
+                </td>
             </tr>
+
+
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    <a th:href="@{/events/edit/{id} (id=${event.id})}"> Edit </a>&ndash;&gt;-->
+<!--                    <a th:href="/events/edit"> Edit Events</a>-->
+<!--                </td>-->
+<!--            </tr>-->
         </table>
     </div>
 </body>
