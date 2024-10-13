@@ -16,7 +16,7 @@ public class EventData {
         return eventsObj.values();
     }
 
-    // get single event
+    // get single event - for deleting record
     public static Event getById(int id){
         return eventsObj.get(id);
     }

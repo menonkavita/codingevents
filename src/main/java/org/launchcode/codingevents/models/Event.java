@@ -8,6 +8,8 @@ public class Event {
 
     private String name;
     private String description;
+    private int numberOfAttendees = 0;
+
 
     public Event(String name, String description) {
         this.name = name;
@@ -34,6 +36,14 @@ public class Event {
 
     public int getId() {
         return id;
+    }
+
+    public int getNumberOfAttendees() {
+        return numberOfAttendees;
+    }
+
+    public void setNumberOfAttendees(int numberOfAttendees) {
+        this.numberOfAttendees = numberOfAttendees;
     }
 
     @Override
