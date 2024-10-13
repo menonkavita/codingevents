@@ -2,14 +2,14 @@ package org.launchcode.codingevents.models;
 
 import java.util.Objects;
 
-public class Events {
+public class Event {
     private int id;
     private static int nextId=1;
 
     private String name;
     private String description;
 
-    public Events(String name, String description) {
+    public Event(String name, String description) {
         this.name = name;
         this.description = description;
         this.id = nextId;
@@ -45,7 +45,7 @@ public class Events {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Events events = (Events) o;
+        Event events = (Event) o;
         return id == events.id;
     }
 
