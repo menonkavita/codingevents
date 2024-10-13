@@ -4,10 +4,7 @@ import org.launchcode.codingevents.data.EventData;
 import org.launchcode.codingevents.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,21 +13,9 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-//    private static List<Event> eventsObj = new ArrayList<>();
-
     // Available @ localhost:8080/events -- not rendering as of now
     @GetMapping
     public String displayEvents(Model model){
-//        List<String> eventsList = new ArrayList<>();
-//        eventsList.add("Dancing");
-//        eventsList.add("Singing");
-//        eventsList.add("Cooking");
-//        model.addAttribute("events", eventsList);
-
-//        eventsObj.add(new Events("Menteaship"));
-//        eventsObj.add(new Events("Code With Pride"));
-//        eventsObj.add(new Events("Javascripty"));
-
         model.addAttribute("events", EventData.getAll());
         return "events/index";
     }
@@ -43,8 +28,8 @@ public class EventController {
 
     // localhost:8080/events/create
     @PostMapping("/create")
-    public String createEvent (@RequestParam String eventName, @RequestParam String eventDesc){
-        EventData.add(new Event(eventName, eventDesc));
+    public String createEvent (@ModelAttribute Event newEvent){
+        EventData.add(newEvent);
         return "redirect:/events";
     }
 
