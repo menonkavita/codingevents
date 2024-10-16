@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="fragments :: scripts-css"></head>
+<head th:replace="fragments :: scripts-css">
+</head>
 <body class="container">
 
 <h1> Create Event</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
+<!--<p th:text="${errorMsg}" style="color:red;"></p>-->
+<div th:replace="fragments :: styles"></div>
+
 <form method="post" action="/events/create">
     <div class="form-group">
-        <label> Enter Event Details: </label><br><br>
+        <p> Enter Event Details: </p>
+    </div>
+
+    <div class="form-group">
         <label> Enter Event Name:
-            <input type="text" name="name" class="form-control">
-        </label><br>
+<!--            <input type="text" name="name" class="form-control">-->
+            <input th:field="${event.name}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.name}"></p>
+    </div>
+
+    <div class="form-group">
         <label> Enter Event Description:
-            <input type="text" name="description" class="form-control">
-        </label><br>
-        <label> Number of Attendees:<br>
-<!--            Changing to select box instead of textbox-->
-<!--            <input type="text" name="numberOfAttendees" class="form-control">-->
-            <select name="numberOfAttendees">
+<!--            <input type="text" name="description" class="form-control">-->
+            <input th:field="${event.description}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.description}"></p>
+    </div>
+
+    <div class="form-group">
+        <label> Number of Attendees: <br>
+<!--            &lt;!&ndash;            Changing to select box instead of textbox&ndash;&gt;-->
+<!--                        <input th:field="${event.numberOfAttendees}" class="form-control">-->
+
+<!--            <select name="${event.numberOfAttendees}">-->
+                <select th:field="${event.numberOfAttendees}">
                 <option value=1> 1 guest </option>
                 <option value=2> 2 guests</option>
                 <option value=3> 3 guests </option>
@@ -31,11 +50,20 @@
                 <option value=10> 10 guests </option>
             </select>
         </label>
+        <p class="error" th:errors="${event.numberOfAttendees}"></p>
+    </div><br>
+
+    <div class="form-group">
+        <label> Enter Email:
+<!--            <input type="text" name="contactEmail" class="form-control">-->
+            <input th:field="${event.contactEmail}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.contactEmail}"></p>
     </div>
+
     <div class="form-group">
         <input type="submit" value="Create Event" class="btn btn-success">
     </div>
-
 </form>
 
 </body>
