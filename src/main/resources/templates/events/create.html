@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="fragments :: scripts-css">
-</head>
+<!--<head th:replace="fragments :: scripts-css"></head>-->
+
+<head th:replace="fragments :: head"></head>
 <body class="container">
+<header th:replace="fragments :: header"></header>
 
 <h1> Create Event</h1>
-<nav th:replace="fragments :: navigation"></nav>
+<!--<nav th:replace="fragments :: navigation"></nav>-->
 
 <!--<p th:text="${errorMsg}" style="color:red;"></p>-->
-<div th:replace="fragments :: styles"></div>
+<!--<div th:replace="fragments :: styles"></div>-->
 
 <form method="post" action="/events/create">
     <div class="form-group">
@@ -60,6 +62,23 @@
         </label>
         <p class="error" th:errors="${event.contactEmail}"></p>
     </div>
+
+    <div class="form-group">
+        <label> Enter Event Location:
+            <!--            <input type="text" name="description" class="form-control">-->
+            <input th:field="${event.location}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.location}"></p>
+    </div>
+
+<!--    <div class="form-group">-->
+<!--        <label> Registration mandatory for the event?-->
+<!--            &lt;!&ndash;            <input type="text" name="description" class="form-control">&ndash;&gt;-->
+<!--            <input th:field="${event.needsRegistration}" class="form-control">-->
+<!--        </label>-->
+<!--&lt;!&ndash;        <p th:unless="${event.needsRegistration} and ${events.size()}">No Events!</p>&ndash;&gt;-->
+<!--        <p class="error" th:errors="${event.needsRegistration}"></p>-->
+<!--    </div>-->
 
     <div class="form-group">
         <input type="submit" value="Create Event" class="btn btn-success">

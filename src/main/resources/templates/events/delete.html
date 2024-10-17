@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="fragments :: scripts-css"></head>
+<!--<head th:replace="fragments :: scripts-css"></head>-->
+
+<head th:replace="fragments :: head"></head>
+
 <body class="container">
+<header th:replace="fragments :: header"></header>
 
 <h1> Delete Event</h1>
-<nav th:replace="fragments :: navigation"></nav>
+<!--<nav th:replace="fragments :: navigation"></nav>-->
 
 <form method="post">
     <th:block th:each = "event : ${events}">

@@ -1,9 +1,8 @@
 package org.launchcode.codingevents.models;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Event {
@@ -17,18 +16,30 @@ public class Event {
     @Size(max=500, message="Description too long!")
     private String description;
 
+    @Positive(message="Enter a number greater than 0")
+    @Max(9)
     private int numberOfAttendees = 0;
 
     @NotBlank(message = "Please enter a valid email")
     @Email(message="Invalid email. Try again.")
     private String contactEmail;
 
+    @NotBlank(message="Location cannot be left blank")
+    private String location;
 
-    public Event(String name, String description, int numberOfAttendees, String contactEmail) {
+//    @AssertTrue(message="Event needs registration. Mark true.")
+//    private String needsRegistration;
+
+//    @Future(message="Date has to be a future date.")
+//    private LocalDate eventDate;
+
+    public Event(String name, String description, int numberOfAttendees, String contactEmail, String location) {
         this.name = name;
         this.description = description;
         this.numberOfAttendees=numberOfAttendees;
         this.contactEmail= contactEmail;
+        this.location=location;
+//        this.needsRegistration=needsRegistration;
         this.id = nextId;
         nextId++;
     }
@@ -70,6 +81,22 @@ public class Event {
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
     }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+//    public String getNeedsRegistration() {
+//        return needsRegistration;
+//    }
+//
+//    public void setNeedsRegistration() {
+//        this.needsRegistration = needsRegistration;
+//    }
 
     @Override
     public String toString() {

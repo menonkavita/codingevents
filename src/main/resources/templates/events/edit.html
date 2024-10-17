@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="fragments :: scripts-css"></head>
+<!--<head th:replace="fragments :: scripts-css"></head>-->
+
+<head th:replace="fragments :: head"></head>
+
 <body class="container">
+<header th:replace="fragments :: header"></header>
+
+<!--<head th:replace="fragments :: scripts-css"></head>-->
 
     <h1> Edit Event</h1>
-    <nav th:replace="fragments :: navigation"></nav>
+<!--    <nav th:replace="fragments :: navigation"></nav>-->
 
     <form method="post" action="/events/edit" th:object="${event}">
 <!--        th:action="@{/events/edit}   Org LC Code-->
@@ -30,9 +36,15 @@
                     <label> Number of Attendees:
                         <input type="number" name="numberOfAttendees" class="form-control" th:value="${event.numberOfAttendees}">
                     </label><br>
+                    <label> Contact Email:
+                        <input type="email" name="contactEmail" class="form-control" th:value="${event.contactEmail}">
+                    </label><br>
+                    <label> Location:
+                        <input type="text" name="location" class="form-control" th:value="${event.location}">
+                    </label><br>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Edit Event" class="btn btn-success">
+                    <input type="submit" value="Save" class="btn btn-success">
                 </div>
 
 

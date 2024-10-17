@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="fragments :: scripts-css"></head>
+<!--<head th:replace="fragments :: scripts-css"></head>-->
+
+<head th:replace="fragments :: head"></head>
+
 <body class="container">
 
     <h1>Coding Events & Others</h1><br>
     <h3>List of Events:</h3>
 
-    <nav th:replace="fragments :: navigation"></nav>
+<!--    <nav th:replace="fragments :: navigation"></nav>-->
+
+    <header th:replace="fragments :: header"></header>
 
 </body>
 </html>
