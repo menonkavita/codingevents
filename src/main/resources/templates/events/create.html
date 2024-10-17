@@ -71,6 +71,16 @@
         <p class="error" th:errors="${event.location}"></p>
     </div>
 
+    <div class="form-group">
+        <label> Event Type:
+            <select th:field="${event.type}">
+                <option th:each="type : ${types}"
+                        th:value="${type}"
+                        th:text="${type.displayName}">
+                </option>
+            </select>
+        </label>
+
 <!--    <div class="form-group">-->
 <!--        <label> Registration mandatory for the event?-->
 <!--            &lt;!&ndash;            <input type="text" name="description" class="form-control">&ndash;&gt;-->

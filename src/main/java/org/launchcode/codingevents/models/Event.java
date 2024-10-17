@@ -33,18 +33,24 @@ public class Event {
 //    @Future(message="Date has to be a future date.")
 //    private LocalDate eventDate;
 
-    public Event(String name, String description, int numberOfAttendees, String contactEmail, String location) {
+    private EventType type;
+
+    public Event(String name, String description, int numberOfAttendees, String contactEmail, String location, EventType t) {
         this.name = name;
         this.description = description;
         this.numberOfAttendees=numberOfAttendees;
         this.contactEmail= contactEmail;
         this.location=location;
+        this.type=t;
 //        this.needsRegistration=needsRegistration;
+//        this.id = nextId;
+//        nextId++;
+    }
+
+    public Event() {
         this.id = nextId;
         nextId++;
     }
-
-    public Event() {    }
 
     public String getName() {
         return name;
@@ -90,7 +96,15 @@ public class Event {
         this.location = location;
     }
 
-//    public String getNeedsRegistration() {
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
+    }
+
+    //    public String getNeedsRegistration() {
 //        return needsRegistration;
 //    }
 //
